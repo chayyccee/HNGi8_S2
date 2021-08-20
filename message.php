@@ -6,7 +6,10 @@
   $website = htmlspecialchars($_POST['website']);
   $message = htmlspecialchars($_POST['message']);
 
-  if(!empty($email) && !empty($message)){
+  if(empty($email) && empty($message)){
+    echo "Email and message field is required!";
+    
+  }else{
     if(filter_var($email, FILTER_VALIDATE_EMAIL)){
       $receiver = "ekechinedu488@gmail.com"; //enter that email address where you want to receive all messages
       $subject = "From: $name <$email>";
@@ -20,7 +23,5 @@
     }else{
       echo "Enter a valid email address!";
     }
-  }else{
-    echo "Email and message field is required!";
   }
 ?>
