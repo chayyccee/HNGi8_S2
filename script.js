@@ -26,6 +26,5 @@ form.onsubmit = (e) => {
       form.classList.remove("disabled");
     }
   }
-  let formData = new FormData(form);
-  xhr.send(formData);
+
 }
