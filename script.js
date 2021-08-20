@@ -27,5 +27,6 @@ form.onsubmit = (e) => {
     }
   }
 
-  xhr.send(form);
+
+  xhr.send();
 }

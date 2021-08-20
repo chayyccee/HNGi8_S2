@@ -6,6 +6,7 @@ if($_POST) {
     $phone = "";
     $website = "";
     $message = "";
+    $recipient = "ekechinedu488@gmail.com";
     $email_body = "<div>";
       
     if(isset($_POST['name'])) {
@@ -44,25 +45,9 @@ if($_POST) {
                            <div>".$message."</div>
                         </div>";
     }
-      
-    
+    mail($recipient, $name, $email, $message, $email_body);
+        echo "<p>Thank you for contacting me, $name. You will get a reply within 24 hours.</p>";
    
-   
-    
-        $recipient = "ekechinedu488@gmail.com";
-  
-      
-    $email_body .= "</div>";
- 
-    $headers  = 'MIME-Version: 1.0' . "\r\n"
-    .'Content-type: text/html; charset=utf-8' . "\r\n"
-    .'From: ' . $email . "\r\n";
-      
-    if(mail($recipient, $name, $email, $message, $email_body, $headers)) {
-        echo "<p>Thank you for contacting me, $visitor_name. You will get a reply within 24 hours.</p>";
-    } else {
-        echo '<p>We are sorry but the email did not go through.</p>';
-    }
       
 } else {
     echo '<p>Something went wrong</p>';
