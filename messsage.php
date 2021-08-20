@@ -9,7 +9,7 @@ $formcontent="From: $name \n Message: $message";
 $recipient = "ekechinedu488@gmail.com";
 $subject = "Contact Form";
 $mailheader = "From: $email \r\n";
-mail($recipient, $subject, $formcontent, $mailheader) or die("Error!");
+mail($recipient, $subject, $formcontent, $mailheader);
 echo "<p>Thank you for contacting me, $name. You will get a reply within 24 hours.</p>";
 
 ?>
