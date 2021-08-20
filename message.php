@@ -1,27 +1,15 @@
-
 <?php
-  $name = htmlspecialchars($_POST['name']);
-  $email = htmlspecialchars($_POST['email']);
-  $phone = htmlspecialchars($_POST['phone']);
-  $website = htmlspecialchars($_POST['website']);
-  $message = htmlspecialchars($_POST['message']);
 
-  if(empty($email) && empty($message)){
-    echo "Email and message field is required!";
-    
-  }else{
-    if(filter_var($email, FILTER_VALIDATE_EMAIL)){
-      $receiver = "ekechinedu488@gmail.com"; //enter that email address where you want to receive all messages
-      $subject = "From: $name <$email>";
-      $body = "Name: $name\nEmail: $email\nPhone: $phone\nWebsite: $website\n\nMessage:\n$message\n\nRegards,\n$name";
-      $sender = "From: $email";
-      if(mail($receiver, $subject, $body, $sender)){
-         echo "Your message has been sent";
-      }else{
-         echo "Sorry, failed to send your message!";
-      }
-    }else{
-      echo "Enter a valid email address!";
-    }
-  }
+$name = $_POST['name'];
+$email = $_POST['email'];
+$phone = $_POST['phone'];
+$website = $_POST['website'];
+$message = $_POST['message'];
+$formcontent="From: $name \n Message: $message";
+$recipient = "ekechinedu488@gmail.com";
+$subject = "Contact Form";
+$mailheader = "From: $email \r\n";
+mail($recipient, $subject, $formcontent, $mailheader);
+echo "<p>Thank you for contacting me, $name. You will get a reply within 24 hours.</p>";
+
 ?>
